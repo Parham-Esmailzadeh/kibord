@@ -74,3 +74,6 @@ crashlytics-build.properties
 .vsconfig
 
 ProjectSettings/
+
+ProjectSettings/EditorBuildSettings.asset
+ProjectSettings/ProjectSettings.asset
