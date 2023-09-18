@@ -14,7 +14,7 @@ public class ScenesManager : MonoBehaviour
     public enum Scene 
     {
         MainMenu,
-        Forest
+        Story
     }
 
     public void LoadScene(Scene scene) {
@@ -22,7 +22,7 @@ public class ScenesManager : MonoBehaviour
     }
 
     public void LoadNewGame() {
-        SceneManager.LoadScene(Scene.Forest.ToString());
+        SceneManager.LoadScene(Scene.Story.ToString());
     }
 
     public void LoadNextScene() {
