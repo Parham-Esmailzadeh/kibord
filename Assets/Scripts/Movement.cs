@@ -24,6 +24,11 @@ public class Movement : MonoBehaviour
         
     }
 
+    public void Log()
+    {
+        Debug.Log("Landed");
+    }
+
     // Update is called once per frame
     void Update()
     {
