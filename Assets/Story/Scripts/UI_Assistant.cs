@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 using CodeMonkey.Utils;
@@ -11,6 +12,7 @@ public class UI_Assistant : MonoBehaviour
     public int FrameRate;
     private Text messageText;
     private string msg;
+    private int currentIndex = 0;
     private AudioSource TypingAudioSource;
     
     private void Awake() {
@@ -27,10 +29,17 @@ public class UI_Assistant : MonoBehaviour
                 "unity kirie nemidonam chejori az halat random text dadan kharejesh konam"
             };
 
-            string msg = messageArray[Random.Range(0, messageArray.Length)];
+            if(currentIndex >= messageArray.Length) {
+                SceneManager.LoadScene("Forest");
+                StopTypingSound();
+                currentIndex = 0;
+            }
+
+            string msg = messageArray[currentIndex];
+            currentIndex++;
+
             StartTypingSound();
             textWriter.AddWriter(messageText, msg, TypingSpeed, true, StopTypingSound);
-
         };
     }
 
