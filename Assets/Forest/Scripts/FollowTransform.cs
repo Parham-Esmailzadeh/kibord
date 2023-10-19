@@ -18,6 +18,6 @@ public class FollowTransform : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        transform.position = new Vector3(target.transform.position.x, 0f, -10f);
+        transform.position = new Vector3(target.transform.position.x +35f, -25f, -10f);
     }
 }
