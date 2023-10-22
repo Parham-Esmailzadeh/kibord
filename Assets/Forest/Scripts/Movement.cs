@@ -16,7 +16,7 @@ public class Movement : MonoBehaviour
 
     public bool disabledJump = false;
 
-    //public Joystick joystick;
+    public Joystick joystick;
 
     // Start is called before the first frame update
     void Start()
@@ -32,20 +32,20 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
-        //horizontalMove = joystick.Horizontal * runSpeed;
+        // horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+        horizontalMove = joystick.Horizontal * runSpeed;
 
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
 
-        if (Input.GetButtonDown("Jump"))
-        {
-            if ( !disabledJump )
-            {
-                animator.SetBool("Jump", true);
-                disabledJump = true;
-                jump = true;
-            }
-        }
+        // if (Input.GetButtonDown("Jump"))
+        // {
+        //     if ( !disabledJump )
+        //     {
+        //         animator.SetBool("Jump", true);
+        //         disabledJump = true;
+        //         jump = true;
+        //     }
+        // }
     }
     public void Landed()
     {
@@ -54,7 +54,12 @@ public class Movement : MonoBehaviour
     }
     public void Jump()
     {
-        jump = true;
+                    if ( !disabledJump )
+            {
+                animator.SetBool("Jump", true);
+                disabledJump = true;
+                jump = true;
+            }
     }
 
     void FixedUpdate()
