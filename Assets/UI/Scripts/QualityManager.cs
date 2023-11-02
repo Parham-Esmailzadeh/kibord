@@ -130,7 +130,7 @@ namespace Michsky.UI.Dark
         public void TextureSet(int index)
         {
             // 0 = Full, 4 = Eight Resolution
-            QualitySettings.masterTextureLimit = index;
+            QualitySettings.globalTextureMipmapLimit = index;
         }
 
         public void SoftParticleSet(int index)
